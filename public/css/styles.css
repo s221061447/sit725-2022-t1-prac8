@@ -23,8 +23,11 @@
     margin-top: 50px;
 }
 
-.modal-content, .modal-footer {
+.modal-footer {
     color: rgba(255,255,255,0.87);
     background-color: #EE6E73 !important;
 }
-    
+
+#card-section {
+    margin-bottom: 0;
+}
