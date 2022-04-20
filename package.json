@@ -1,5 +1,5 @@
 {
-  "name": "sit725-2022-t1-prac4",
+  "name": "sit725-2022-t1-prac6",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/s221061447/sit725-2022-t1-prac4.git"
+    "url": "git+https://github.com/s221061447/sit725-2022-t1-prac6.git"
   },
   "author": "Paul Jose",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/s221061447/sit725-2022-t1-prac4/issues"
+    "url": "https://github.com/s221061447/sit725-2022-t1-prac6/issues"
   },
-  "homepage": "https://github.com/s221061447/sit725-2022-t1-prac4#readme",
+  "homepage": "https://github.com/s221061447/sit725-2022-t1-prac6#readme",
   "dependencies": {
     "chai": "^4.3.6",
     "cors": "^2.8.5",
