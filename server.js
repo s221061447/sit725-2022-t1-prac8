@@ -34,20 +34,24 @@ const createCollection = (collectionName) => {
     });
 };
 
-// const cardList = [
-//     {
-//         title: "Kuala 2",
-//         image: "images/kuala2.jpeg",
-//         link: "About Kuala 2",
-//         description: "Demo description about kuala 2"
-//     },
-//     {
-//         title: "Kuala 3",
-//         image: "images/kuala3.jpeg",
-//         link: "About Kuala 3",
-//         description: "Demo description about kuala 3"
-//     }
-// ];
+const addTwoNumbers = (n1, n2) => {
+    n1 = parseInt(n1);
+    n2 = parseInt(n2);
+    let result = (n1 + n2) || null;
+    return result;
+}
+
+// Add two numbers API
+app.get('/addTwoNumbers', (req, res) => {
+    let n1 = req.query.n1;
+    let n2 = req.query.n2;
+    let result = addTwoNumbers(n1, n2);
+    if (result == null) {
+        res.json({ statusCode: 400, result: result });
+    } else {
+        res.json({ statusCode: 200, result: result });
+    }
+});
 
 app.get('/api/projects', (req,res) => {
     getProjects((err, result) => {
@@ -73,6 +77,6 @@ app.post('/api/projects', (req,res) => {
 const port = 3000;
 
 app.listen(port, ()=> {
-    console.log("App listening to: "+port);
+    console.log("App listening to: " + port);
     createCollection("pets");
 });
