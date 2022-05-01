@@ -50,6 +50,12 @@ const getProjects = () => {
     });
 };
 
+let socket = io();
+socket.on('number', (msg) => {
+    console.log("Current time from server: " + msg);
+    $("#heading").html("Welcome to SIT 725 Week 7: " + msg);
+});
+
 $(document).ready(function(){
     $('.materialboxed').materialbox();
     $('#formSubmit').click(()=>{

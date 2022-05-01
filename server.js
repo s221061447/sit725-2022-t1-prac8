@@ -1,7 +1,10 @@
 require("dotenv").config();
-const express= require("express");
+const express = require("express");
 const cors = require("cors");
-const app= express();
+const app = express();
+
+let http = require("http").createServer(app);
+let io = require("socket.io")(http);
 
 const MongoClient = require("mongodb").MongoClient;
 // Connect to the database
@@ -74,9 +77,26 @@ app.post('/api/projects', (req,res) => {
     });
 });
 
+
+
+io.on('connection', socket => {
+    console.log("A user has connected", socket.id);
+    socket.on('disconnect', () => {
+        console.log("User disconnected");
+    });
+    setInterval(() => {
+        socket.emit('number', new Date().toISOString());
+    }, 1000);
+});
+
 const port = 3000;
 
-app.listen(port, ()=> {
-    console.log("App listening to: " + port);
+// app.listen(port, ()=> {
+//     console.log("App listening to: " + port);
+//     createCollection("pets");
+// });
+
+http.listen(port, () => {
+    console.log("Listening on port: ", port);
     createCollection("pets");
 });
